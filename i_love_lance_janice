@@ -1,0 +1,19 @@
+def solution(x):
+    forward_lc = "abcdefghijklmnopqrstuvwxyz"
+    backward_phrase = []
+    for letter in range(0, len(forward_lc)):
+        backward_phrase.append(forward_lc[letter])
+    forward_phrase = backward_phrase.copy()
+    backward_phrase.reverse()
+    decoded_list=[]
+    for letter in x:
+        if ord(letter)>=97 and ord(letter) <= 122:
+            index=backward_phrase.index(letter)
+            decoded_list.append(forward_phrase[index])
+        else:
+            decoded_list.append(letter)
+    decoded_str="".join(decoded_list)
+    return decoded_str
+
+
+print(solution("svool dliow"))
